@@ -1,0 +1,64 @@
+[
+      {
+        "name": "T-Rex Food",
+        "description": "Nutritious and specially formulated food for your T-Rex.",
+        "price": 29.99
+      },
+      {
+        "name": "Stegosaurus Chew Toy",
+        "description": "Durable chew toy designed for your Stegosaurus to keep them entertained.",
+        "price": 14.99
+      },
+      {
+        "name": "Triceratops Leash",
+        "description": "Strong and adjustable leash for walking your Triceratops.",
+        "price": 19.99
+      },
+      {
+        "name": "Velociraptor Treats",
+        "description": "Delicious treats that will please even the pickiest Velociraptor taste buds.",
+        "price": 9.99
+      },
+      {
+        "name": "Pterodactyl Flight Harness",
+        "description": "A comfortable and secure harness to allow your Pterodactyl to soar.",
+        "price": 39.99
+      },
+      {
+        "name": "Brachiosaurus Bed",
+        "description": "Soft and cozy bed perfect for your Brachiosaurus to relax in.",
+        "price": 49.99
+      },
+      {
+        "name": "Ankylosaurus Armor",
+        "description": "Protective armor to keep your Ankylosaurus safe during playtime.",
+        "price": 59.99
+      },
+      {
+        "name": "Dinosaur Dental Kit",
+        "description": "Complete dental care kit to maintain your dinosaur's oral hygiene.",
+        "price": 24.99
+      },
+      {
+        "name": "Dino-Ball Launcher",
+        "description": "A fun ball launcher for playing fetch with your dinosaur.",
+        "price": 34.99
+      },
+      {
+        "name": "Dinosaur Grooming Kit",
+        "description": "Essential grooming tools to keep your dinosaur looking its best.",
+        "price": 27.99
+      },
+      {
+        "name": "Dino Plush Toy Set",
+        "description": "Set of soft and adorable plush toys for your dinosaur to cuddle with.",
+        "price": 16.99
+      },
+      {
+        "name": "Dinosaur Training Clicker",
+        "description": "A training clicker to teach your dinosaur new tricks and commands.",
+        "price": 12.99
+      }
+    ]
+
+  
