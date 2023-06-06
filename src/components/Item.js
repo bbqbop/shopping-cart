@@ -1,10 +1,14 @@
-import { useState} from 'react';
+import { useState, useContext } from 'react';
 import ImageGallery from './ImageGallery';
 import './Item.css';
+import { CartContext } from '../App';
 
-export default function Item({name, images, description, price, quantity, setCart, index}){
+export default function Item({name, images, description, price, index}){
 
-    const [isAdded, setIsAdded] = useState(false);
+    const {cart, setCart} = useContext(CartContext);
+    const [isAdded, setIsAdded] = useState(!!cart[name]);
+
+    const quantity = cart[name]?.quantity || 0
     
     function addToCart(){
         setIsAdded(true);
@@ -22,17 +26,23 @@ export default function Item({name, images, description, price, quantity, setCar
     function changeQuantity(e) {
         const newQuantity = parseInt(e.target.value);
         if (newQuantity <= 0){
-            setIsAdded(false)
+            setCart(prevCart => {
+                const newCart = {...prevCart}
+                delete newCart[name]
+                return newCart;
+            })
+            setIsAdded(false);
+        } else {
+            setCart(prevCart => {
+                return {
+                    ...prevCart,
+                    [name]: {
+                        ...prevCart[name],
+                        quantity: newQuantity
+                    }
+                };
+            });
         }
-        setCart(prevCart => {
-            return {
-                ...prevCart,
-                [name]: {
-                    ...prevCart[name],
-                    quantity: newQuantity
-                }
-            };
-        });
     }
     
 
