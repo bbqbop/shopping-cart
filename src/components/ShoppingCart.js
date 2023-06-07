@@ -19,8 +19,7 @@ export default function ShoppingCart(){
         return rndTotal;
     }
 
-    function deleteItem(e){
-        const itemName = e.target.dataset.itemname;
+    function deleteItem(itemName){
         setCart(prevCart => {
             const newCart = {
                 ...prevCart
@@ -86,7 +85,7 @@ export default function ShoppingCart(){
                                             />
                                         </td>
                                         <td>{(cart[item].price * cart[item].quantity).toFixed(2)}</td>
-                                        <td><FontAwesomeIcon icon={faXmark} onClick={deleteItem} data-itemname={item}/></td>
+                                        <td onClick={() => deleteItem(item)}><FontAwesomeIcon icon={faXmark}/></td>
                                     </tr>
                                 ))
                             }
