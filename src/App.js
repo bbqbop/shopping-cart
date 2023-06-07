@@ -1,13 +1,13 @@
 import React, { createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import ShoppingCart from "./components/ShoppingCart";
 import NavBar from "./components/NavBar";
 import './App.css';
 
-export const CartContext = React.createContext();
+export const CartContext = createContext();
 
 export default function App(){
     const [cart, setCart] = useState({});

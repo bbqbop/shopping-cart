@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { CartContext } from "../App"
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import logo from '../assets/logo.svg'

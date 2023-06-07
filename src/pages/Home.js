@@ -6,7 +6,7 @@ export default function Home(){
     return (
         
         <div className='home'>
-            <img src={wallpaper} alt='Photo of Dino Delights' id="wallpaper"/>
+            <img src={wallpaper} alt="A pet-dino and its owner" id="wallpaper"/>
             <h1>Dino Delights</h1>
             <h2>Your One-Stop Shop for All Your Pet-Dino Needs!</h2>
             {/* <section>
