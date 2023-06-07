@@ -3,20 +3,27 @@ import { CartContext } from "../App"
 import { useContext, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import logo from '../assets/logo.svg'
 
 export default function NavBar(){
-
     const [isFixed, setIsFixed] = useState(false);
 
     const handleScroll = () => {
+        const homeLink = document.querySelector('#homeLink');
+        console.dir(homeLink.classList)
+        if(homeLink.classList[0] === 'active'){
+            return
+        }            
         const cartIcon = document.querySelector('.cartIcon')
         const cartIconRect = cartIcon.getBoundingClientRect();
-        const isScrolled = window.scrollY > cartIconRect.top + window.scrollY;
-
-        if (isScrolled){
+        const isScrolled = window.scrollY > cartIconRect.height;
+        
+        if(isScrolled && !isFixed){
             cartIcon.classList.add('fixed');
-        } else {
+            setIsFixed(true)
+        } else if (!isScrolled && isFixed) {
             cartIcon.classList.remove('fixed');
+            setIsFixed(false);
         }
     }
 
@@ -34,7 +41,8 @@ export default function NavBar(){
 
     return (
         <div className="navBar">
-            <NavLink to="/">Home</NavLink>
+            <img src={logo} alt='Dino Delight Logo' id='logo'/>
+            <NavLink to="/" id='homeLink'>Home</NavLink>
             <NavLink to="/shop" >Shop</NavLink>
             <div className={`cartIcon`}>
                 <NavLink to="/cart" >

@@ -1,0 +1,6 @@
+.shop .items {
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
