@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -17,14 +17,14 @@ export default function App(){
     
     return (
         <CartContext.Provider value={{cart, setCart}}>
-            <BrowserRouter>
+            <HashRouter>
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/shop" element={<Shop />} /> 
                     <Route path="/cart" element={<ShoppingCart />} />
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </CartContext.Provider>
     )
 }
