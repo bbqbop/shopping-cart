@@ -1,10 +1,26 @@
 import { NavLink } from "react-router-dom"
 import { CartContext } from "../App"
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 export default function NavBar(){
+
+    const [isFixed, setIsFixed] = useState(false);
+
+    const handleScroll = () => {
+        const cartIcon = document.querySelector('.cartIcon')
+        const cartIconRect = cartIcon.getBoundingClientRect();
+        const isScrolled = window.scrollY > cartIconRect.top + window.scrollY;
+
+        if (isScrolled){
+            cartIcon.classList.add('fixed');
+        } else {
+            cartIcon.classList.remove('fixed');
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
 
     const { cart } = useContext(CartContext);
 
@@ -19,11 +35,13 @@ export default function NavBar(){
     return (
         <div className="navBar">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/shop">Shop</NavLink>
-            <NavLink to="/shop/cart">
-                <FontAwesomeIcon icon={faCartShopping} />
-                {getItemsCount()}
-            </NavLink>
+            <NavLink to="/shop" >Shop</NavLink>
+            <div className={`cartIcon`}>
+                <NavLink to="/cart" >
+                    <FontAwesomeIcon icon={faCartShopping} />
+                    {getItemsCount()}
+                </NavLink>
+            </div>
         </div>
     )
 }
