@@ -1,13 +1,24 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import ImageGallery from './ImageGallery';
 import './Item.css';
 import { CartContext } from '../App';
+import getImages from "../lib/getImages"
 
-export default function Item({name, images, description, price, index}){
+export default function Item({name, description, price, index}){
 
     const {cart, setCart} = useContext(CartContext);
     const [isAdded, setIsAdded] = useState(!!cart[name]);
+    const [images, setImages] = useState(null)
 
+    useEffect(() => {
+        async function fetchImages() {
+            const img = await getImages(name);
+            setImages(img);
+        }
+        fetchImages();
+    }, []);
+    
+    
     const quantity = cart[name]?.quantity || 0
     
     function addToCart(){
@@ -49,7 +60,7 @@ export default function Item({name, images, description, price, index}){
     return(
         <div className="Item">
             <h3>{name}</h3>
-            {images.length >= 0 && <ImageGallery images = {images} name = {name} index={index}/>}
+            {images !== null && images.length >= 0 && <ImageGallery images={images} name={name} index={index} />}
             <p>{description}</p>
             <div className="ItemInput">
             <legend>Price ${price}
