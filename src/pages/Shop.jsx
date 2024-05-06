@@ -3,11 +3,11 @@ import { CartContext } from '../App';
 import getImages from '../lib/getImages';
 import { Link } from 'react-router-dom';
 import './Shop.css';
+import items from "../data/items.json";
 
 import Item from '../components/Item';
 
-export default function Home(){
-    const items = require('../data/items.json')
+export default async function Home(){
     const [cartIsFull, setCartIsFull] = useState(false);
     const { cart } = useContext(CartContext);
 
@@ -24,12 +24,15 @@ export default function Home(){
             <h1>Shop</h1>
             <div className='items'>
                 {items.map((item, index) => 
+                    {console.log(item) 
+                        return(
                     <Item name={item.name}
                         description={item.description}
                         price={item.price}
                         images = {getImages(item.name)}
                         index={index}
-                        key={index}/>                  
+                        key={index}/>  
+                    )}                
                         )}
             </div>
             {cartIsFull && <Link to='/cart' className='continueCheckout'>Continue to checkout</Link>}
