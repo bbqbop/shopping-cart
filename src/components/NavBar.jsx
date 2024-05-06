@@ -10,7 +10,6 @@ export default function NavBar(){
 
     const handleScroll = () => {
         const homeLink = document.querySelector('#homeLink');
-        console.dir(homeLink.classList)
         if(homeLink.classList[0] === 'active'){
             return
         }            

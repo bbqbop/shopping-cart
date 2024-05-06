@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Home from './pages/Home';
